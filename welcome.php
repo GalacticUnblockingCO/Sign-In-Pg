@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Validate username and password (you would typically check against a database)
         // For demonstration purposes, let's assume the correct username is "admin" and password is "password"
-        if ($username === "admin" && $password === "password") {
+        if ($username === "GalacticUnblockingStaff" && $password === "StaffMember") {
             // Authentication successful, redirect the user to a welcome page
             header("Location: welcome.php");
             exit;
