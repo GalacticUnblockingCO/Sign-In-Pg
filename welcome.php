@@ -7,19 +7,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = $_POST["username"];
         $password = $_POST["password"];
 
-        // Validate username and password (you would typically check against a database)
-        // For demonstration purposes, let's assume the correct username is "admin" and password is "password"
-        if ($username === "GalacticUnblockingStaff" && $password === "StaffMember") {
-            // Authentication successful, redirect the user to a welcome page
-            header("Location: welcome.php");
+        // Perform authentication (dummy example)
+        // You would typically validate the username and password against a database
+        if ($username === "admin" && $password === "password") {
+            // Authentication successful, redirect to the new link
+            header("Location: https://galacticunblockingco.github.io/BanBot-v1/");
             exit;
         } else {
-            // Authentication failed, display an error message
-            echo "Invalid username or password. Please try again.";
+            // Authentication failed, redirect back to sign-in page with an error message
+            header("Location: signin.php?error=1");
+            exit;
         }
     } else {
-        // Username or password not provided, display an error message
-        echo "Username or password not provided.";
+        // Username or password not provided, redirect back to sign-in page with an error message
+        header("Location: signin.php?error=1");
+        exit;
     }
+} else {
+    // If the form is not submitted, redirect back to sign-in page
+    header("Location: signin.php");
+    exit;
 }
 ?>
+
